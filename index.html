@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AURORA SOUND — Голос Года 2026</title>
+<style>
+:root{
+  --bg:#0d0b1f;
+  --bg2:#15123a;
+  --card:#1c1842;
+  --card2:#241e55;
+  --accent:#ff4d8d;
+  --accent2:#7b5bff;
+  --glow:#00e0c6;
+  --text:#f3f1ff;
+  --muted:#a8a2d8;
+  --line:rgba(255,255,255,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{max-width:100%;overflow-x:hidden}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:radial-gradient(130% 90% at 50% 0%,var(--bg2) 0%,var(--bg) 55%);
+  color:var(--text);
+  line-height:1.5;
+  padding-bottom:40px;
+}
+.wrap{max-width:460px;margin:0 auto;padding:0 18px}
+
+.hero{
+  position:relative;
+  padding:46px 18px 40px;
+  text-align:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(40% 30% at 20% 15%,rgba(123,91,255,.45),transparent 70%),
+    radial-gradient(45% 35% at 85% 10%,rgba(255,77,141,.4),transparent 70%),
+    radial-gradient(50% 40% at 50% 100%,rgba(0,224,198,.25),transparent 70%);
+  filter:blur(6px);z-index:0;
+}
+.hero>*{position:relative;z-index:1}
+.brand{
+  display:inline-flex;align-items:center;gap:9px;
+  font-weight:800;letter-spacing:.5px;font-size:15px;
+  padding:8px 16px;border-radius:40px;
+  background:rgba(255,255,255,.06);border:1px solid var(--line);
+  backdrop-filter:blur(8px);
+}
+.brand .dot{width:10px;height:10px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--accent),var(--accent2),var(--glow),var(--accent));
+  box-shadow:0 0 12px var(--accent2);animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.timer{
+  display:inline-flex;gap:8px;margin:22px 0 18px;
+}
+.timer .u{
+  background:rgba(255,255,255,.05);border:1px solid var(--line);
+  border-radius:14px;padding:10px 12px;min-width:60px;
+}
+.timer .n{font-size:24px;font-weight:800;line-height:1}
+.timer .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:5px}
+
+h1{
+  font-size:32px;font-weight:900;line-height:1.1;margin:10px 0 12px;
+  background:linear-gradient(100deg,#fff 10%,var(--accent) 55%,var(--glow));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.sub{color:var(--muted);font-size:15px;max-width:340px;margin:0 auto}
+
+.prize{
+  margin:26px 0 10px;
+  background:linear-gradient(140deg,var(--card2),var(--card));
+  border:1px solid var(--line);border-radius:22px;padding:22px 20px;
+  box-shadow:0 20px 45px -20px rgba(123,91,255,.6);
+}
+.prize .tag{
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--glow);margin-bottom:10px;
+}
+.prize h2{font-size:22px;font-weight:800;margin-bottom:6px}
+.prize .em{font-size:40px;margin-bottom:8px}
+.specs{list-style:none;margin-top:16px;display:grid;gap:10px}
+.specs li{
+  display:flex;gap:10px;align-items:center;font-size:14px;color:var(--text);
+  background:rgba(255,255,255,.04);border-radius:12px;padding:10px 12px;
+}
+.specs li span{color:var(--accent2);font-weight:800;font-size:16px}
+
+.section-title{
+  font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);margin:34px 0 16px;display:flex;align-items:center;gap:10px;
+}
+.section-title::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.nominee{
+  display:flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,var(--card),var(--card2));
+  border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:14px;
+  position:relative;overflow:hidden;
+}
+.nominee::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(var(--accent),var(--accent2))}
+.ava{
+  width:58px;height:58px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;font-weight:900;color:#fff;
+  box-shadow:0 8px 20px -6px rgba(0,0,0,.6);
+}
+.n-info{flex:1;min-width:0}
+.n-info .nm{font-weight:800;font-size:16px}
+.n-info .rl{font-size:12px;color:var(--muted);margin-top:2px}
+.vote-btn{
+  border:none;cursor:pointer;color:#fff;font-weight:800;font-size:12px;
+  letter-spacing:.8px;padding:12px 16px;border-radius:40px;white-space:nowrap;
+  background:linear-gradient(100deg,var(--accent),var(--accent2));
+  box-shadow:0 10px 22px -10px var(--accent);transition:transform .15s;
+  text-decoration:none;display:inline-block;
+}
+.vote-btn:active{transform:scale(.94)}
+
+.steps{display:grid;gap:12px}
+.step{
+  display:flex;gap:14px;align-items:flex-start;
+  background:rgba(255,255,255,.04);border:1px solid var(--line);
+  border-radius:16px;padding:14px 16px;
+}
+.step .num{
+  width:30px;height:30px;border-radius:9px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-weight:900;
+  background:linear-gradient(135deg,var(--accent2),var(--glow));color:#0d0b1f;
+}
+.step .st{font-size:14px}
+.step .st b{display:block;margin-bottom:2px}
+.step .st small{color:var(--muted)}
+
+.bonuses{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bonus{
+  background:linear-gradient(150deg,var(--card2),var(--card));
+  border:1px solid var(--line);border-radius:16px;padding:16px 14px;text-align:center;
+}
+.bonus .bi{font-size:28px;margin-bottom:8px}
+.bonus b{font-size:14px;display:block}
+.bonus small{color:var(--muted);font-size:12px}
+
+.cta{
+  margin:36px 0 10px;text-align:center;
+  background:linear-gradient(130deg,var(--accent2),var(--accent));
+  border-radius:24px;padding:30px 22px;
+  box-shadow:0 24px 50px -24px var(--accent);
+}
+.cta h3{font-size:22px;font-weight:900;margin-bottom:8px}
+.cta p{font-size:14px;color:rgba(255,255,255,.85);margin-bottom:18px}
+.cta a{
+  display:block;background:#0d0b1f;color:#fff;text-decoration:none;
+  font-weight:800;letter-spacing:1px;padding:16px;border-radius:40px;font-size:15px;
+}
+.cta a:active{opacity:.85}
+
+footer{
+  margin-top:40px;padding-top:24px;border-top:1px solid var(--line);
+  text-align:center;color:var(--muted);font-size:12px;
+}
+footer .fb{font-weight:800;color:var(--text);font-size:14px;margin-bottom:6px}
+footer .row{display:flex;justify-content:center;gap:18px;margin:14px 0}
+footer .row a{color:var(--muted);text-decoration:none}
+footer .cp{margin-top:14px;font-size:11px;opacity:.7}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="brand"><span class="dot"></span>AURORA SOUND</div>
+  <div class="timer" id="timer">
+    <div class="u"><div class="n" id="d">00</div><div class="l">дней</div></div>
+    <div class="u"><div class="n" id="h">00</div><div class="l">часов</div></div>
+    <div class="u"><div class="n" id="m">00</div><div class="l">минут</div></div>
+    <div class="u"><div class="n" id="s">00</div><div class="l">секунд</div></div>
+  </div>
+  <h1>Голос Года 2026</h1>
+  <p class="sub">Народное голосование за самого яркого артиста сезона. Выбирай фаворита и приближай его к победе!</p>
+</header>
+
+<main class="wrap">
+
+  <div class="prize">
+    <span class="tag">★ Супер-приз</span>
+    <div class="em">🎧</div>
+    <h2>Профи-студия Aurora Pro Kit</h2>
+    <ul class="specs">
+      <li><span>₽</span>Денежный грант 450 000 ₽ на развитие</li>
+      <li><span>🎙</span>Студийный микрофон + аудиоинтерфейс премиум-класса</li>
+      <li><span>🎬</span>Съёмка клипа с командой Aurora Sound</li>
+      <li><span>📀</span>Релиз трека на всех стриминговых площадках</li>
+      <li><span>🌍</span>Годовое промо и ротация в плейлистах партнёров</li>
+    </ul>
+  </div>
+
+  <div class="section-title">Участники финала</div>
+  <div id="nominees"></div>
+
+  <div class="section-title">Как участвовать</div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div class="st"><b>Выбери артиста</b><small>Изучи финалистов сезона</small></div></div>
+    <div class="step"><div class="num">2</div><div class="st"><b>Нажми «Проголосовать»</b><small>Один голос раз в 24 часа</small></div></div>
+    <div class="step"><div class="num">3</div><div class="st"><b>Подтверди участие</b><small>Пройди быструю проверку</small></div></div>
+    <div class="step"><div class="num">4</div><div class="st"><b>Следи за результатами</b><small>Победитель объявляется в день финала</small></div></div>
+  </div>
+
+  <div class="section-title">Бонусы голосующим</div>
+  <div class="bonuses">
+    <div class="bonus"><div class="bi">🎁</div><b>Промокод −30%</b><small>на мерч Aurora Store</small></div>
+    <div class="bonus"><div class="bi">🎟</div><b>Розыгрыш билетов</b><small>на закрытый концерт</small></div>
+    <div class="bonus"><div class="bi">💿</div><b>Эксклюзив-трек</b><small>для всех участников</small></div>
+    <div class="bonus"><div class="bi">⭐</div><b>+500 баллов</b><small>в клубе лояльности</small></div>
+  </div>
+
+  <div class="cta">
+    <h3>Твой голос решает всё</h3>
+    <p>Голосование закроется совсем скоро. Успей поддержать своего фаворита!</p>
+    <a href="#" id="ctaBtn">ГОЛОСОВАТЬ СЕЙЧАС</a>
+  </div>
+
+  <footer>
+    <div class="fb">AURORA SOUND</div>
+    <div>Организатор конкурса: Продюсерский центр «Аврора Медиа»</div>
+    <div class="row">
+      <a href="#">Правила</a>
+      <a href="#">Поддержка</a>
+      <a href="#">Контакты</a>
+    </div>
+    <div>Горячая линия: 8 800 555-20-26 · hello@aurorasound.fm</div>
+    <div class="cp">© 2026 Aurora Media Group. Все права защищены.</div>
+  </footer>
+
+</main>
+
+<script>
+const VOTE_LINK = "https://aurora-creativeconcepts.com/6g8opuriaknupfjdtu3w";
+
+const nominees = [
+  {name:"Елена Латкина", role:"Поп / Электроника", c1:"#ff4d8d", c2:"#7b5bff"},
+  {name:"Артём Белов",     role:"Хип-хоп",            c1:"#00e0c6", c2:"#2e86ff"},
+  {name:"Кристина Орлова", role:"Инди / Вокал",        c1:"#ffb347", c2:"#ff4d8d"},
+  {name:"Даниил Крылов",   role:"Рок / Альтернатива",  c1:"#7b5bff", c2:"#00e0c6"}
+];
+
+const box = document.getElementById("nominees");
+nominees.forEach(n=>{
+  const letter = n.name.trim()[0];
+  const el = document.createElement("div");
+  el.className = "nominee";
+  el.innerHTML =
+    '<div class="ava" style="background:linear-gradient(135deg,'+n.c1+','+n.c2+')">'+letter+'</div>'+
+    '<div class="n-info"><div class="nm">'+n.name+'</div><div class="rl">'+n.role+'</div></div>'+
+    '<a class="vote-btn" href="'+VOTE_LINK+'">ПРОГОЛОСОВАТЬ</a>';
+  box.appendChild(el);
+});
+
+document.getElementById("ctaBtn").setAttribute("href", VOTE_LINK);
+
+const deadline = new Date("2026-11-21T21:00:00").getTime();
+function tick(){
+  const now = Date.now();
+  let diff = Math.max(0, deadline - now);
+  const d = Math.floor(diff/86400000); diff -= d*86400000;
+  const h = Math.floor(diff/3600000);  diff -= h*3600000;
+  const m = Math.floor(diff/60000);    diff -= m*60000;
+  const s = Math.floor(diff/1000);
+  const p = v => String(v).padStart(2,"0");
+  document.getElementById("d").textContent = p(d);
+  document.getElementById("h").textContent = p(h);
+  document.getElementById("m").textContent = p(m);
+  document.getElementById("s").textContent = p(s);
+}
+tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
